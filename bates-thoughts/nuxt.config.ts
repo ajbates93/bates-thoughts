@@ -4,6 +4,8 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss', 
     '@nuxtjs/color-mode', 
     '@nuxtjs/strapi',
+    '@nuxt/image-edge',
+    '@nuxt/content',
     'nuxt-icon', 
   ],
   tailwindcss: {
@@ -16,10 +18,18 @@ export default defineNuxtConfig({
   strapi: {
     url: process.env.API_BASE,
   },
+  image: {
+    strapi: {
+      baseURL: 'http://localhost:1337'
+    }
+  },
+  colorMode: {
+    classSuffix: ''
+  },
   runtimeConfig: {
     public: {
       apiBase: process.env.API_BASE
       // apiBase: "http://localhost:1337/api"
     }
-  },
+  }
 })
