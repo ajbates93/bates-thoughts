@@ -1,5 +1,9 @@
 <script setup lang="ts">
 
+useHead({
+  title: 'Blog'
+})
+
 interface Data<T> {
   data: {
     id: number;
@@ -39,7 +43,7 @@ const { data: blogs, pending, refresh, error } = await useAsyncData('blog', () =
     <div v-else-if="blogs?.data">
       <div v-for="blog in blogs.data" class="mb-7">
         <div class="flex">
-          <picture class="mr-7 rounded overflow-hidden max-w-[350px]">
+          <picture class="mr-7 rounded border-zinc-600 border overflow-hidden max-w-[350px]">
             <template v-if="blog.attributes.Cover">
               <nuxt-img 
                 :src="`${blog.attributes.Cover.data.attributes.formats.small.url}`" 

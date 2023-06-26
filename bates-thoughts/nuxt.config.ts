@@ -31,5 +31,12 @@ export default defineNuxtConfig({
       apiBase: process.env.API_BASE
       // apiBase: "http://localhost:1337/api"
     }
+  },
+  app: {
+    head: {
+      titleTemplate: (titleChunk) => {
+        return titleChunk ? `Alex Bates | ${titleChunk}` : 'Alex Bates | Web Developer'
+      }
+    }
   }
 })

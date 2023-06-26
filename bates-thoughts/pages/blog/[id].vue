@@ -19,15 +19,12 @@ type Blog = {
 const { findOne } = useStrapi()
 const route = useRoute()
 
+console.log(route)
+
 const { data: blog, pending, refresh, error } = await useAsyncData('blog', 
   () => findOne<Blog>('blogs', route.params.id.toString(), { populate: '*' }))
 
 const parsed = await parseMarkdown(blog.value?.data.attributes.Main_Post ?? '')
-
-definePageMeta({
-  title: blog.value?.data.attributes.Title,
-  datePublished: blog.value?.data.attributes.createdAt
-})
 
 </script>
 
